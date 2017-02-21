@@ -433,10 +433,10 @@ abstract public class BasicPOJOClass implements POJOClass, MetaAttributeConstant
 			
 			appendCommonColumnInfo( annotations, column, insertable, updatable );
 			
-			if (column.getPrecision() != Column.DEFAULT_PRECISION) { // the default is actually 0 in spec
+			if (column.isPrecisionSet()) { 
 				annotations.append( ", precision=" ).append( column.getPrecision() );
 			}
-			if (column.getScale() != Column.DEFAULT_SCALE) { // default is actually 0 in spec
+			if (column.isScaleSet()) { 
 				annotations.append( ", scale=" ).append( column.getScale() );
 			}
 			else if (column.getLength() != 255){ 
